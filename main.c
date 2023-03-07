@@ -29,7 +29,7 @@ int main(){
     Expected output:
         Data: ABC
         Data: 11892
-        Length: 2
+        Length: 3
 
     */
 
