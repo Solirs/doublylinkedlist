@@ -28,7 +28,7 @@ int main(){
     /*
     Expected output:
         Data: ABC
-        Data: Hello
+        Data: 11892
         Length: 2
 
     */
