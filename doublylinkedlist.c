@@ -1,4 +1,5 @@
-#include"doublylinkedlist.h"
+#include <stdlib.h>
+#include "doublylinkedlist.h"
 
 // Add new node at the head, replacing it.
 void inserthead(struct DoubleLinkedList *list, void* data){
