@@ -33,8 +33,9 @@ int main(){
 
     */
 
-   free(c);
-   free(i);
+    free(c);
+    free(i);
+    nuke(&Nodelist);
 
     return 0;
 }

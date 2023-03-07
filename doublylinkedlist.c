@@ -108,3 +108,29 @@ struct DoubleLinkedList make_dll(){
     ret.tail = NULL;
     return ret;
 }
+
+// Completely wipe a doubly linked list
+void nuke(struct DoubleLinkedList *list){
+    struct node *cur;
+    if (list->head && !list->tail){
+        free(list->head);
+    }else if (list->tail && !list->head)
+    {
+        free(list->tail);
+    }else{
+        cur = list->head;
+        while(1){
+            struct node *nxt = cur->next;
+            if (cur == list->tail){
+                free(cur);
+                break;
+            } else{
+                free(cur);
+                cur = nxt;
+            }
+
+        }
+    }  
+    list->size = 0;
+
+}

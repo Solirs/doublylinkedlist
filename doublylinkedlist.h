@@ -27,6 +27,6 @@ void* getindexfromhead(struct DoubleLinkedList *list, int index);
 void* getindexfromtail(struct DoubleLinkedList *list, int index);
 
 struct DoubleLinkedList make_dll();
-
+void nuke(struct DoubleLinkedList *list);
 
 #endif
