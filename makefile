@@ -6,6 +6,7 @@ build:
 run:
 	make build
 	./doublylinkedlist
+	make clean
 
 object:
 	gcc -c doublylinkedlist.c -Wall -Wextra -o libdoublylinkedlist.o
