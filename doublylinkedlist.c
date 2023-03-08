@@ -136,6 +136,9 @@ void setdata(struct DoubleLinkedList *list, void* data, int index){
     struct node* cur = list->head;
     for (i = 0; i<index; i++){
         cur = cur->next;
+        if (cur == NULL){
+            return NULL;
+        }
     }
         cur->data = data;
 
