@@ -3,7 +3,7 @@
 
 // Add new node at the head, replacing it.
 void inserthead(struct DoubleLinkedList *list, void* data){
-    struct node* ins = malloc(sizeof(struct node) + sizeof(data));
+    struct node* ins = malloc(sizeof(struct node));
     ins->data = data;
     ins->previous = NULL;
     if (list->size == 0){
@@ -26,7 +26,7 @@ void inserthead(struct DoubleLinkedList *list, void* data){
 
 // Add new node at the tail, replacing it.
 void inserttail(struct DoubleLinkedList *list, void* data){
-    struct node* ins = malloc(sizeof(struct node) + sizeof(data));
+    struct node* ins = malloc(sizeof(struct node));
     ins->data = data;
     ins->next = NULL;
     if (list->size == 0){
@@ -142,7 +142,6 @@ void setdata(struct DoubleLinkedList *list, void* data, int index){
     for (i = 0; i<index; i++){
         cur = cur->next;
     }
-    cur = realloc(cur, sizeof(struct node) + sizeof(data));
-    cur->data = data;
+        cur->data = data;
 
 }
