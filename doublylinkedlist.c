@@ -134,3 +134,15 @@ void nuke(struct DoubleLinkedList *list){
     list->size = 0;
 
 }
+
+// Sets the data of a DoublyLinkedList's certain index, starting from the head.
+void setdata(struct DoubleLinkedList *list, void* data, int index){
+    int i;
+    struct node* cur = list->head;
+    for (i = 0; i<index; i++){
+        cur = cur->next;
+    }
+    cur = realloc(cur, sizeof(struct node) + sizeof(data));
+    cur->data = data;
+
+}
