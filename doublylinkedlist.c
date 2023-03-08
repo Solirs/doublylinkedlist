@@ -1,4 +1,3 @@
-#include <stdlib.h>
 #include "doublylinkedlist.h"
 
 // Add new node at the head, replacing it.
