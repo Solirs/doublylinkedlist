@@ -8,18 +8,15 @@ void inserthead(struct DoubleLinkedList *list, void* data){
     if (list->size == 0){
         list->tail = NULL;
         ins->next = NULL;
-        list->head = ins;
     }else{
         if (list->tail == NULL){
             list->tail = list->head;
         }
         ins->next = list->head;
         list->head->previous = ins;
-        
-        list->head = ins;
-
 
     }
+    list->head = ins;
     list->size++;
 }
 
@@ -31,20 +28,16 @@ void inserttail(struct DoubleLinkedList *list, void* data){
     if (list->size == 0){
         list->head = NULL;
         ins->previous = NULL;
-        list->tail = ins;
     }else{
-
         if (list->head == NULL){
 
             list->head = list->tail;
         }
         ins->previous = list->tail;
         list->tail->next = ins;
-        
-        list->tail = ins;
-
-
     }
+    list->tail = ins;
+
     list->size++;
 
 
