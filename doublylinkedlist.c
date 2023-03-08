@@ -6,15 +6,12 @@ void inserthead(struct DoubleLinkedList *list, void* data){
     ins->data = data;
     ins->previous = NULL;
     if (list->size == 0){
-        list->tail = NULL;
         ins->next = NULL;
+
+        list->tail = ins;
     }else{
-        if (list->tail == NULL){
-            list->tail = list->head;
-        }
         ins->next = list->head;
         list->head->previous = ins;
-
     }
     list->head = ins;
     list->size++;
@@ -26,18 +23,14 @@ void inserttail(struct DoubleLinkedList *list, void* data){
     ins->data = data;
     ins->next = NULL;
     if (list->size == 0){
-        list->head = NULL;
         ins->previous = NULL;
-    }else{
-        if (list->head == NULL){
+        list->head = ins;
 
-            list->head = list->tail;
-        }
+    }else{
         ins->previous = list->tail;
         list->tail->next = ins;
     }
     list->tail = ins;
-
     list->size++;
 
 
@@ -46,14 +39,14 @@ void inserttail(struct DoubleLinkedList *list, void* data){
 // Remove the list's tail replacing it by the node before it
 void poptail(struct DoubleLinkedList *list){
     struct node *newtail = list->tail->previous;
+
     //We need to free the node struct that was allocated in inserttail or inserthead
     free(list->tail);
     if (list->size > 1){
         newtail->next = NULL;
         list->tail = newtail;
-        list->size--;
     }
-
+    list->size--;
 
 }
 // Remove the list's head replacing it with the next node
@@ -66,19 +59,24 @@ void pophead(struct DoubleLinkedList *list){
     if (list->size > 1){
         newhead->previous = NULL;
         list->head = newhead;
-        list->size--;
-
     }
+    list->size--;
 
 }
 
 // Get data by index starting at the heazd
 void* getindexfromhead(struct DoubleLinkedList *list, int index){
+
     int i;
     struct node* cur = list->head;
+
     for (i = 0; i<index; i++){
         cur = cur->next;
+        if (cur == NULL){
+            return NULL;
+        }
     }
+
     return cur->data;
 }
 
@@ -86,9 +84,14 @@ void* getindexfromhead(struct DoubleLinkedList *list, int index){
 void* getindexfromtail(struct DoubleLinkedList *list, int index){
     int i;
     struct node* cur = list->tail;
+
     for (i = 0; i<index; i++){
         cur = cur->previous;
+        if (cur == NULL){
+            return NULL;
+        }
     }
+
     return cur->data;
 }
 
@@ -104,11 +107,11 @@ struct DoubleLinkedList make_dll(){
 // Completely wipe a doubly linked list
 void nuke(struct DoubleLinkedList *list){
     struct node *cur;
-    if (list->head && !list->tail){
+    if (list->size == 0){
+        return NULL;
+    }
+    if (list->head == list->tail){
         free(list->head);
-    }else if (list->tail && !list->head)
-    {
-        free(list->tail);
     }else{
         cur = list->head;
         while(1){
