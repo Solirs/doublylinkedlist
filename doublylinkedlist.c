@@ -42,6 +42,7 @@ void poptail(struct DoubleLinkedList *list){
 
     //We need to free the node struct that was allocated in inserttail or inserthead
     free(list->tail);
+    list->tail = NULL;
     if (list->size > 1){
         newtail->next = NULL;
         list->tail = newtail;
@@ -55,6 +56,7 @@ void pophead(struct DoubleLinkedList *list){
 
     //We need to free the node struct that was allocated in inserttail or inserthead
     free(list->head);
+    list->head = NULL;
 
     if (list->size > 1){
         newhead->previous = NULL;
