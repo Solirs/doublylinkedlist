@@ -48,6 +48,7 @@ void* poptail(struct DoubleLinkedList *list){
         list->tail = newtail;
     }
     list->size--;
+    return ret;
 
 }
 // Remove the list's head replacing it with the next node
