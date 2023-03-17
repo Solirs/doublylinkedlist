@@ -130,6 +130,7 @@ void nuke(struct DoubleLinkedList *list){
 
         }
     }  
+    cur = NULL;
     list->size = 0;
 
 }
