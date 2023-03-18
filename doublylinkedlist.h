@@ -3,6 +3,9 @@
 
 #include <stdlib.h>
 
+#define doublylinkedlist_prepend(list, data) inserthead(list, data)
+#define doublylinkedlistlinkedlist_append(list, data) inserttail(list, data)
+
 struct node{
     struct node* previous;
     void* data;
@@ -29,7 +32,6 @@ void* getindexfromtail(struct DoubleLinkedList *list, int index);
 struct DoubleLinkedList *make_dll();
 void nuke(struct DoubleLinkedList *list);
 void setdata(struct DoubleLinkedList *list, void* data, int index);
-void prepend(struct DoubleLinkedList *list, void* data);
-void append(struct DoubleLinkedList *list, void* data);
 
+void doublelinkedlist_zero(struct DoubleLinkedList *ll);
 #endif
