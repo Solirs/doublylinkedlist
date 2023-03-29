@@ -176,24 +176,22 @@ void cdsc_doublylinkedlist_reverse(struct DoubleLinkedList *list) {
 }
 
 void doublylinkedlist_foreach(struct DoubleLinkedList* dll, void (*action)(), void* param){
-	if (dll->head == NULL){ // List is empty.
-		return NULL;
-	}
+
 	struct node* cur = dll->head;
 	while (cur != NULL){
 		action(cur, param);
 		cur = cur->next;
 	}
+	return NULL;
 }
 
 void doublylinkedlist_foreach_reverse(struct DoubleLinkedList* dll, void (*action)(), void* param){
-	if (dll->head == NULL){ // List is empty.
-		return NULL;
-	}
+
 	struct node* cur = dll->tail;
 	while (cur != NULL){
 		action(cur, param);
 		cur = cur->previous;
 	}
+	return NULL;
 }
 
