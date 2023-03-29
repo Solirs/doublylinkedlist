@@ -160,3 +160,40 @@ void setdata(struct DoubleLinkedList *list, void* data, int index){
     }
     cur->data = data;
 }
+
+void cdsc_doublylinkedlist_reverse(struct DoubleLinkedList *list) { 
+    struct node* formerhead = list->head;
+    list->tail = formerhead;
+	struct node* current = list->head;
+	struct node* next;
+ 
+	while (current != NULL) {
+		next = current->next;
+		current->next = current->previous;
+		current = next;
+	}
+	list->head = current->previous;
+}
+
+void doublylinkedlist_foreach(struct DoubleLinkedList* dll, void (*action)(), void* param){
+	if (dll->head == NULL){ // List is empty.
+		return NULL;
+	}
+	struct node* cur = dll->head;
+	while (cur != NULL){
+		action(cur, param);
+		cur = cur->next;
+	}
+}
+
+void doublylinkedlist_foreach_reverse(struct DoubleLinkedList* dll, void (*action)(), void* param){
+	if (dll->head == NULL){ // List is empty.
+		return NULL;
+	}
+	struct node* cur = dll->tail;
+	while (cur != NULL){
+		action(cur, param);
+		cur = cur->previous;
+	}
+}
+

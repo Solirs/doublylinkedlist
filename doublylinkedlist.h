@@ -34,4 +34,7 @@ void nuke(struct DoubleLinkedList *list);
 void setdata(struct DoubleLinkedList *list, void* data, int index);
 
 void doublelinkedlist_zero(struct DoubleLinkedList *ll);
+void cdsc_doublylinkedlist_reverse(struct DoubleLinkedList *list);
+void doublylinkedlist_foreach(struct DoubleLinkedList* dll, void (*action)(), void* param);
+void doublylinkedlist_foreach_reverse(struct DoubleLinkedList* dll, void (*action)(), void* param);
 #endif
